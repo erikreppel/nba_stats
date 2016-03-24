@@ -7,7 +7,11 @@ HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
 class Player:
 
-    def __init__(self, player_name, stat_type='PerGame', breakdown='career'):
+    def __init__(self, player_name, stat_type='PerGame'):
+        """
+        player_name: an NBA players full name including spaces
+        stat_type: "PerGame"||"Totals"||"Per36"
+        """
         self.player_name = player_name
         league_leaders_url = 'http://stats.nba.com/stats/leagueleaders?LeagueID=00&PerMode=PerGame&Scope=S&Season=2015-16&SeasonType=Pre+Season&StatCategory=REB'
         league_leaders = requests.get(
