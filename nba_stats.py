@@ -76,7 +76,8 @@ team_stats_2014 = get_team_stats(season='2014-15')
 team_ids = {x[1]: x[0] for x in team_stats_2014['resultSets'][0]['rowSet']}
 
 
-def get_player_stats(date_from='',
+def get_player_stats(player=None,
+                     date_from='',
                      date_to='',
                      game_segment='',
                      last_n_games='0',
@@ -100,6 +101,8 @@ def get_player_stats(date_from='',
                      vs_conference='',
                      vs_division=''
                      ):
+    if player:
+            player_id = player_ids[player]
     stats_url = 'http://stats.nba.com/stats/playerdashboardbygeneralsplits?DateFrom=%s&DateTo=%s&GameSegment=%s&LastNGames=%s&LeagueID=%s&Location=%s&MeasureType=%s&Month=%s&OpponentTeamID=%s&Outcome=%s&PORound=%s&PaceAdjust=%s&PerMode=%s&Period=%s&PlayerID=%s&PlusMinus=%s&Rank=%s&Season=%s&SeasonSegment=%s&SeasonType=%s&ShotClockRange=%s&VsConference=%s&VsDivision=%s' % (
       date_from,
       date_to,
